@@ -88,19 +88,36 @@ function start(){
 }
 setTimeout(start,7000); /* if the intro ever stalls, headings must not stay hidden */
 
-/* preloader: counter follows real load progress (min 0.9s, max 3s), faster exit */
+/* preloader v2: the Y draws in, counts to 100, then flies into the nav logo (first visit only) */
 function intro(){
   if(!SS('moSeen')){
-    SS('moSeen','1');var p=mk('mo-pre','<span>Anotherwise</span><b>0</b>'),n=$('b',p);D.body.appendChild(p);H.classList.remove('mo-pre');
+    SS('moSeen','1');
+    var nl=$('.aw-logo svg'),ps=nl?[].slice.call(nl.querySelectorAll('path')):[],
+    VB='viewBox="339 213 338 610" aria-hidden="true"',
+    p=mk('mo-pre mo-v2','<div class="mo-y"><svg class="mo-a" '+VB+'><path fill="#fff" d="M339 339h62v58l141 141v286h-61V563L339 422z"/></svg><svg class="mo-b" '+VB+'><path fill="#B8FF00" d="M614 213h63v218L563 542l-42-44 93-93z"/></svg></div><b class="mo-pct">0%</b>'),
+    y=$('.mo-y',p),n=$('.mo-pct',p),done=false,
+    show=function(){ps.forEach(function(e){e.style.opacity=''})},
+    fly=function(){
+      if(done)return;done=true;
+      var r=nl&&nl.getBoundingClientRect(),b=y.getBoundingClientRect();
+      p.classList.add('go');
+      if(r&&r.width&&b.width){
+        y.style.transform='translate('+(r.left+r.width*339/1024-b.left)+'px,'+(r.top+r.height*213/1024-b.top)+'px) scale('+(r.width*338/1024/b.width)+')';
+      }else y.style.opacity='0';
+      setTimeout(start,550);
+      setTimeout(function(){show();p.remove()},1150);
+    };
+    ps.forEach(function(e){e.style.opacity='0'});
+    D.body.appendChild(p);H.classList.remove('mo-pre');
     var t0=performance.now();
     (function t(x){
-      var el=x-t0,q=clamp(el/900,0,1),e=1-Math.pow(1-q,3),
-          cap=D.readyState==='complete'||el>3000?1:D.readyState==='interactive'?.9:.6,
+      var el=x-t0,q=clamp(el/1700,0,1),e=1-Math.pow(1-q,3),
+          cap=D.readyState==='complete'||el>3500?1:D.readyState==='interactive'?.9:.6,
           v=Math.min(e,cap);
-      n.textContent=Math.round(v*100);
-      if(v<1)requestAnimationFrame(t);
-      else setTimeout(function(){p.classList.add('out');setTimeout(function(){p.remove()},850);setTimeout(start,250)},120);
+      n.textContent=Math.round(v*100)+'%';
+      if(v<1)requestAnimationFrame(t);else setTimeout(fly,250);
     })(t0);
+    setTimeout(fly,9000); /* safety net */
   }else{
     if(H.classList.contains('mo-arrive')){SS('moNav',null);requestAnimationFrame(function(){requestAnimationFrame(function(){H.classList.remove('mo-arrive');setTimeout(start,250)})})}
     else start();
