@@ -103,7 +103,7 @@ def schema_for(fn, p):
             {"@type": "WebSite", "@id": site_id, "url": SITE + "/", "name": BRAND, "inLanguage": "en-IN",
              "publisher": {"@id": org_id}},
             {"@type": "ProfessionalService", "@id": SITE + "/#service", "name": BRAND, "url": SITE + "/",
-             "image": abs_url("/og-image.png"), "description": p["desc"], "telephone": PHONE,
+             "image": abs_url("/og-image.png?v=202611230016"), "description": p["desc"], "telephone": PHONE,
              "parentOrganization": {"@id": org_id},
              "areaServed": [{"@type": "Country", "name": "India"}, "Worldwide"],
              "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services", "itemListElement": [
@@ -120,7 +120,7 @@ def schema_for(fn, p):
     crumbs.append((p["crumb"], abs_url(p["url"])))
     page = {"@type": "ContactPage" if p["kind"] == "contact" else "WebPage", "@id": abs_url(p["url"]) + "#page",
             "url": abs_url(p["url"]), "name": p["title"], "description": p["desc"], "inLanguage": "en-IN",
-            "isPartOf": {"@id": site_id}, "primaryImageOfPage": {"@type": "ImageObject", "url": abs_url("/og-image.png")},
+            "isPartOf": {"@id": site_id}, "primaryImageOfPage": {"@type": "ImageObject", "url": abs_url("/og-image.png?v=202611230016")},
             "breadcrumb": {"@id": abs_url(p["url"]) + "#crumbs"}}
     if p["kind"] == "case":
         page["about"] = p["crumb"]
@@ -150,14 +150,14 @@ def head_block(fn, p):
         f'<meta property="og:title" content="{e(p["title"], quote=True)}">',
         f'<meta property="og:description" content="{e(p["desc"], quote=True)}">',
         f'<meta property="og:url" content="{u}">',
-        f'<meta property="og:image" content="{abs_url("/og-image.png")}">',
+        f'<meta property="og:image" content="{abs_url("/og-image.png?v=202611230016")}">',
         '<meta property="og:image:width" content="1200">',
         '<meta property="og:image:height" content="630">',
         f'<meta property="og:image:alt" content="{BRAND}: {TAGLINE}">',
         '<meta name="twitter:card" content="summary_large_image">',
         f'<meta name="twitter:title" content="{e(p["title"], quote=True)}">',
         f'<meta name="twitter:description" content="{e(p["desc"], quote=True)}">',
-        f'<meta name="twitter:image" content="{abs_url("/og-image.png")}">',
+        f'<meta name="twitter:image" content="{abs_url("/og-image.png?v=202611230016")}">',
         '<link rel="icon" href="/favicon.ico" sizes="any">',
         '<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">',
         '<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">',
@@ -332,7 +332,7 @@ def make_images():
     d.text((72, 520), TAGLINE + "  ·  Software studio, India", font=font(30, False), fill=(168, 168, 168))
     big = icon.resize((300, 300), Image.LANCZOS)
     img.paste(big, (W - 300 - 80, 80), big)
-    img.save(ROOT / "og-image.png", optimize=True)
+    # img.save(ROOT / "og-image.png", optimize=True)
 
 
 def main():
