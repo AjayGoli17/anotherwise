@@ -274,6 +274,7 @@ a:hover>.mo-roll>span,a:focus-visible>.mo-roll>span{transform:translateY(-100%)}
 
 @media (prefers-reduced-motion:reduce){.mo-grain{display:none}html::before{display:none}}
 </style>
+<style id="aw-nav-scroll">.aw-nav{transition:transform .45s cubic-bezier(.65,0,.35,1)}.aw-nav.aw-hide{transform:translateY(-130%)}@media(prefers-reduced-motion:reduce){.aw-nav{transition:none}}</style>
 </head>
 <body>
 
@@ -777,5 +778,10 @@ D.querySelectorAll('.left .eyebrow,.left .lede,.left .avail,.left .info .row,.le
   el.style.setProperty('--m5d',Math.min(n++,12)*70+'ms');el.classList.add('m5-r');io.observe(el)});
 })();
 </script>
+<script id="aw-nav-scroll-js">(function(){var nav=document.getElementById('site-nav');if(!nav)return;var H=document.documentElement,last=window.scrollY||0,hidden=false,tick=false;
+function set(h){if(h===hidden)return;hidden=h;nav.classList.toggle('aw-hide',h)}
+function upd(){tick=false;var y=Math.max(0,window.scrollY||0);if(H.classList.contains('aw-lock')||y<80){set(false);last=y;return}var d=y-last;if(Math.abs(d)<8)return;set(d>0);last=y}
+addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+nav.addEventListener('focusin',function(){set(false)});})();</script>
 </body>
 </html>

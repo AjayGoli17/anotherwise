@@ -219,6 +219,7 @@ a:hover>.mo-roll>span,a:focus-visible>.mo-roll>span{transform:translateY(-100%)}
 
 @media (prefers-reduced-motion:reduce){.mo-grain{display:none}html::before{display:none}}
 </style>
+<style id="aw-nav-scroll">.aw-nav{transition:transform .45s cubic-bezier(.65,0,.35,1)}.aw-nav.aw-hide{transform:translateY(-130%)}@media(prefers-reduced-motion:reduce){.aw-nav{transition:none}}</style>
 </head><body><div class="aw-nav" id="site-nav">
   <div class="aw-pill">
     <a class="aw-logo" href="index.html" aria-label="Anotherwise home"><svg viewBox="0 0 1024 1024" aria-hidden="true" focusable="false"><circle cx="512" cy="512" r="500" fill="#050505" stroke="rgba(255,255,255,.18)" stroke-width="24"/><path fill="#fff" d="M339 339h62v58l141 141v286h-61V563L339 422z"/><path fill="#B8FF00" d="M614 213h63v218L563 542l-42-44 93-93z"/></svg><span>ANOTHERWISE</span></a>
@@ -598,4 +599,9 @@ function init(){
 if(D.readyState==='complete')setTimeout(init,120);else addEventListener('load',function(){setTimeout(init,120)});
 })();
 </script>
+<script id="aw-nav-scroll-js">(function(){var nav=document.getElementById('site-nav');if(!nav)return;var H=document.documentElement,last=window.scrollY||0,hidden=false,tick=false;
+function set(h){if(h===hidden)return;hidden=h;nav.classList.toggle('aw-hide',h)}
+function upd(){tick=false;var y=Math.max(0,window.scrollY||0);if(H.classList.contains('aw-lock')||y<80){set(false);last=y;return}var d=y-last;if(Math.abs(d)<8)return;set(d>0);last=y}
+addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+nav.addEventListener('focusin',function(){set(false)});})();</script>
 </body></html>

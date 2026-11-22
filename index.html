@@ -139,6 +139,7 @@ a:hover>.mo-roll>span,a:focus-visible>.mo-roll>span{transform:translateY(-100%)}
 .aw-menu.is-open{clip-path:inset(0 0 0 0);transition:clip-path .7s cubic-bezier(.76,0,.24,1),opacity .3s ease,visibility 0s}
 </style>
 <style id="aw-wm-fix">.aw-wm{clip-path:none!important;margin-bottom:0!important;translate:0 22%!important}</style>
+<style id="aw-nav-scroll">.aw-nav{transition:transform .45s cubic-bezier(.65,0,.35,1)}.aw-nav.aw-hide{transform:translateY(-130%)}@media(prefers-reduced-motion:reduce){.aw-nav{transition:none}}</style>
 </head>
 <body>
 
@@ -743,6 +744,19 @@ h2 i{font-style:normal;color:var(--lime)}
 .fc i{aspect-ratio:1.5/1;background:#e5dccf}.fc i:nth-child(2){background:#dacdb9}.fc i:nth-child(4){background:#d3c6b1}
 /* 3 workflow */
 .v3{background:#d9d9d7}
+.v4{background:#1b1b1b}
+.v5{background:#0b120e}
+.br.vk{background:#111;box-shadow:0 20px 44px rgba(0,0,0,.5)}
+.br.vk .bt{background:#1c1c1c}.br.vk .bt i{background:#3a3a3a}.br.vk .bt span{background:#111;color:#8a8a8a}
+.vkn{display:flex;justify-content:space-between;align-items:center;padding:3% 4%;color:#fff;font:600 clamp(7px,2.4cqw,10px)/1 var(--h)}
+.vkn span{color:#8a8a8a;font-weight:400}
+.vkh{padding:4%;color:#fff}
+.vkh h5{font:500 clamp(11px,4.2cqw,17px)/1.05 var(--h);letter-spacing:-.03em}
+.vkh u{display:inline-block;margin-top:5%;padding:2% 4%;border-radius:99px;background:var(--lime);color:#050505;text-decoration:none;font:600 clamp(5px,2cqw,8px)/1 var(--h)}
+.vks{display:grid;grid-template-columns:repeat(3,1fr);gap:3%;padding:0 4% 4%;flex:1}
+.vks i{border-radius:5px;background:#262626}.vks i:nth-child(2){background:#26320a}.vks i:nth-child(3){background:#3a3a3a}
+.v5 .ph{right:auto;left:37%;top:12%}
+
 .wf{left:7%;top:9%;width:86%;height:80%;background:#f4f4f2;box-shadow:0 18px 40px rgba(0,0,0,.14);padding:5%;display:grid;grid-template-rows:auto auto 1fr;gap:5%}
 .wf h4{font:500 clamp(11px,4.86cqw,18px) var(--h);letter-spacing:-.02em}
 .wf .sub{font-size:clamp(5.5px,2.23cqw,8.5px);color:#777;margin-top:3px}
@@ -827,14 +841,29 @@ h2{margin-top:26px;font:600 clamp(36px,4.4vw,60px)/1.08 'Space Grotesk',system-u
         </div>
       </div>
       <div class="side">
-        <p>Three projects, three kinds of problem: a live queue, an admissions website and an automated workflow.</p>
+        <p>Five projects, five kinds of problem: an online shop, a live queue, an automated workflow, a trainer platform and an admissions website.</p>
       </div>
     </div>
 
     <div class="vp" id="vp">
       <div class="track" id="track" aria-live="polite">
 
-        <a class="card" href="casestudy3.html" aria-roledescription="slide" aria-label="1 of 3">
+<a class="card" href="vkphotography.html" aria-roledescription="slide" aria-label="1 of 5">
+<div class="vis v4" role="img" aria-label="VK Photography website with a shop grid and a quote button">
+<div class="mk br vk"><div class="bt"><i></i><i></i><i></i><span>vkphotography</span></div>
+<div class="vkn"><b>VK Photography</b><span>Shop · Weddings · Quote</span></div>
+<div class="vkh"><h5>Frames, gifts and wedding shoots.</h5><u>Get a quote →</u></div>
+<div class="vks"><i></i><i></i><i></i></div></div>
+</div>
+<div class="meta"><div>
+<div class="lbl"><b>01</b><s>/</s>Ecommerce</div>
+<h3>VK Photography</h3>
+<p class="vl">One website for wedding shoots sold by quotation and personalised frames sold online, built end to end for a Hyderabad studio.</p>
+<p class="tags"><em>Client work</em><em>Live site</em><em>Ecommerce</em><em>Quotation flow</em></p></div>
+<svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></div>
+</a>
+
+<a class="card" href="casestudy3.html" aria-roledescription="slide" aria-label="2 of 5">
           <div class="vis v1" role="img" aria-label="Hospital reception dashboard beside a patient queue-tracking phone screen">
             <div class="mk dash">
               <div class="sb"><b>City Care</b><span>Queue</span><span>Patients</span><span>Doctors</span><span>Rooms</span><span>Reports</span></div>
@@ -856,34 +885,14 @@ h2{margin-top:26px;font:600 clamp(36px,4.4vw,60px)/1.08 'Space Grotesk',system-u
             </div>
           </div>
           <div class="meta"><div>
-            <div class="lbl"><b>01</b><s>/</s>Business Systems</div>
+            <div class="lbl"><b>02</b><s>/</s>Business Systems</div>
             <h3>Hospital Queue Management System</h3>
             <p class="vl">Patients get a token and see who is being served. Staff run the whole queue from one dashboard.</p>
             <p class="tags"><em>Concept build · demo data</em><em>Queue system</em><em>Reception dashboard</em><em>Waiting-room TV</em></p></div>
             <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></div>
         </a>
 
-        <a class="card" href="casestudy1.html" aria-roledescription="slide" aria-label="2 of 3">
-          <div class="vis v2" role="img" aria-label="Chaitanya Bharath School website in a browser frame">
-            <div class="mk br">
-              <div class="bt"><i></i><i></i><i></i><span>chaitanyabharathschool.com</span></div>
-              <div class="nv"><b>Chaitanya Bharath School</b><span><i style="font-style:normal">Home</i><i style="font-style:normal">Academics</i><i style="font-style:normal">Facilities</i><i style="font-style:normal">Gallery</i></span></div>
-              <div class="hero">
-                <div><h5>Where Young Minds Discover, Learn &amp; Grow.</h5><p>Quality education from Nursery to Grade 7.</p><u>Apply for Admission →</u></div>
-                <div class="sc"><div class="fl"></div><div class="sofa"></div><div class="pl"></div><div class="tb"></div></div>
-              </div>
-              <div class="fc"><i></i><i></i><i></i><i></i></div>
-            </div>
-          </div>
-          <div class="meta"><div>
-            <div class="lbl"><b>02</b><s>/</s>Website</div>
-            <h3>Chaitanya Bharath School</h3>
-            <p class="vl">A mobile-first website for a school. Parents see the campus and faculty, then send an admission enquiry in a few taps.</p>
-            <p class="tags"><em>Client work</em><em>Education</em><em>Admissions</em></p></div>
-            <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></div>
-        </a>
-
-        <a class="card" href="casestudy2.html" aria-roledescription="slide" aria-label="3 of 3">
+<a class="card" href="casestudy2.html" aria-roledescription="slide" aria-label="3 of 5">
           <div class="vis v3" role="img" aria-label="Workflow interface: form submitted, validate, extract and merge">
             <div class="mk wf">
               <div><h4>Photo of questions to print-ready paper.</h4><div class="sub">One form submission returns a download link for every set.</div></div>
@@ -906,6 +915,41 @@ h2{margin-top:26px;font:600 clamp(36px,4.4vw,60px)/1.08 'Space Grotesk',system-u
             <p class="tags"><em>Internal build</em><em>n8n</em><em>Form trigger</em><em>Gemini vision</em></p></div>
             <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></div>
         </a>
+
+<a class="card" href="gym%20case%20study.html" aria-roledescription="slide" aria-label="4 of 5">
+<div class="vis v5" role="img" aria-label="Gym client phone screen showing a workout plan and progress">
+<div class="mk ph"><div class="s">Today · Client plan</div><div class="n">12</div><div class="s">sessions this week</div><div class="r"></div>
+<div class="p"><span>Strength A</span><span>7:00</span></div><div class="p"><span>Diet plan</span><span>Day 3</span></div><div class="pb"><i></i></div></div>
+</div>
+<div class="meta"><div>
+<div class="lbl"><b>04</b><s>/</s>Platform</div>
+<h3>Shakti Kinetic</h3>
+<p class="vl">A trainer platform: build workout and diet plans, assign each to one client, and see what they actually did.</p>
+<p class="tags"><em>Concept build</em><em>Workout plans</em><em>Client mobile app</em></p></div>
+<svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></div>
+</a>
+
+<a class="card" href="casestudy1.html" aria-roledescription="slide" aria-label="5 of 5">
+          <div class="vis v2" role="img" aria-label="Chaitanya Bharath School website in a browser frame">
+            <div class="mk br">
+              <div class="bt"><i></i><i></i><i></i><span>chaitanyabharathschool.com</span></div>
+              <div class="nv"><b>Chaitanya Bharath School</b><span><i style="font-style:normal">Home</i><i style="font-style:normal">Academics</i><i style="font-style:normal">Facilities</i><i style="font-style:normal">Gallery</i></span></div>
+              <div class="hero">
+                <div><h5>Where Young Minds Discover, Learn &amp; Grow.</h5><p>Quality education from Nursery to Grade 7.</p><u>Apply for Admission →</u></div>
+                <div class="sc"><div class="fl"></div><div class="sofa"></div><div class="pl"></div><div class="tb"></div></div>
+              </div>
+              <div class="fc"><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="meta"><div>
+            <div class="lbl"><b>05</b><s>/</s>Website</div>
+            <h3>Chaitanya Bharath School</h3>
+            <p class="vl">A mobile-first website for a school. Parents see the campus and faculty, then send an admission enquiry in a few taps.</p>
+            <p class="tags"><em>Client work</em><em>Education</em><em>Admissions</em></p></div>
+            <svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></div>
+        </a>
+
+
       </div>
     </div>
 
@@ -928,7 +972,8 @@ section::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.22;backg
 .label::before,.label::after{content:"";width:1.75rem;height:1px;background:linear-gradient(90deg,transparent,var(--accent))}
 .label::after{transform:scaleX(-1)}
 h2{font:600 clamp(2.1rem,5.8vw,4rem)/1.06 'Space Grotesk',system-ui,sans-serif;letter-spacing:-.02em;margin:1.2rem 0 0}
-h2 em{font-style:normal;background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2 em{font-style:normal;background:none;color:inherit}/*aw-em-fix*/
+h2 em .mo-wi{background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;padding-bottom:.16em;margin-bottom:-.16em}
 .head p{margin:1.25rem auto 0;color:#b5b5b5;line-height:1.65;font-size:clamp(1rem,2vw,1.125rem);max-width:38rem}
 
 /* above / below the line */
@@ -2464,5 +2509,10 @@ function init(){
 if(D.readyState==='complete')setTimeout(init,120);else addEventListener('load',function(){setTimeout(init,120)});
 })();
 </script>
+<script id="aw-nav-scroll-js">(function(){var nav=document.getElementById('site-nav');if(!nav)return;var H=document.documentElement,last=window.scrollY||0,hidden=false,tick=false;
+function set(h){if(h===hidden)return;hidden=h;nav.classList.toggle('aw-hide',h)}
+function upd(){tick=false;var y=Math.max(0,window.scrollY||0);if(H.classList.contains('aw-lock')||y<80){set(false);last=y;return}var d=y-last;if(Math.abs(d)<8)return;set(d>0);last=y}
+addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+nav.addEventListener('focusin',function(){set(false)});})();</script>
 </body>
 </html>
