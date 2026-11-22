@@ -220,6 +220,12 @@ a:hover>.mo-roll>span,a:focus-visible>.mo-roll>span{transform:translateY(-100%)}
 @media (prefers-reduced-motion:reduce){.mo-grain{display:none}html::before{display:none}}
 </style>
 <style id="aw-nav-scroll">.aw-nav{transition:transform .45s cubic-bezier(.65,0,.35,1)}.aw-nav.aw-hide{transform:translateY(-130%)}@media(prefers-reduced-motion:reduce){.aw-nav{transition:none}}</style>
+<style id="aw-social-css">
+.aw-soc{display:block;margin-top:2.2rem}
+.aw-soc a{display:inline-block;margin:.4rem 1.1rem;padding-bottom:.2rem;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.55);font:400 1.1rem/1.3 'Inter',system-ui,sans-serif;letter-spacing:0;text-transform:none;transition:color .25s,border-color .25s}
+.aw-soc a:hover,.aw-soc a:focus-visible{color:var(--ac,#B8FF00);border-color:var(--ac,#B8FF00)}
+</style>
+<style id="aw-nofooter">footer{display:none!important}</style>
 </head><body><div class="aw-nav" id="site-nav">
   <div class="aw-pill">
     <a class="aw-logo" href="index.html" aria-label="Anotherwise home"><svg viewBox="0 0 1024 1024" aria-hidden="true" focusable="false"><circle cx="512" cy="512" r="500" fill="#050505" stroke="rgba(255,255,255,.18)" stroke-width="24"/><path fill="#fff" d="M339 339h62v58l141 141v286h-61V563L339 422z"/><path fill="#B8FF00" d="M614 213h63v218L563 542l-42-44 93-93z"/></svg><span>ANOTHERWISE</span></a>
@@ -328,7 +334,7 @@ function render(){
  o+=S(++n,"Outcomes",`<h2>${c.refl?"Reflection.":"Results."}</h2><div class="kp">${c.results.map(r=>`<div><b>${r[0]}</b><span>${r[1]}</span></div>`).join("")}</div>${c.refl?`<div class="cd">${c.refl.map(r=>`<div><h3 style="font-size:1.1rem;margin-bottom:.6rem">${r[0]}</h3><p>${r[1]}</p></div>`).join("")}</div>`:""}${c.quote?`<blockquote><p>“${c.quote[0]}”</p><cite>${c.quote[1]}</cite></blockquote>`:""}`,"results");
  const sh=c.show;o+=S(++n,"Showcase",`<h2>${sh.title}</h2>${sh.text?`<p class="in2">${sh.text}</p>`:""}<div class="sh">${sh.f.map(x=>`<figure class="fr ${x[0]}">${mk("",x[3],x[4])}<h3>${x[1]}</h3><p>${x[2]}</p></figure>`).join("")}</div>`);
  const nx=CASES[c.next],nl=SERVICES.find(s=>s[0]==c.next)[1];
- o+=`<section class="cta"><div class="w rv"><h2 style="max-width:20ch;margin-bottom:1rem">Have a problem worth solving another way?</h2><p class="in2" style="margin:0 auto 2rem">Tell us what’s slowing your business down or what you want to build.</p><a class="btn" href="contact.html">Start a project</a><a class="btn g" href="index.html#partners">Become a delivery partner</a><a class="btn g" href="index.html">Back to home</a></div></section><footer><div class="w"><span>${c.brand} · Case study</span><span>Anotherwise, an independent software and digital systems studio</span></div></footer>`;
+ o+=`<section class="cta"><div class="w rv"><h2 style="max-width:20ch;margin-bottom:1rem">Have a problem worth solving another way?</h2><p class="in2" style="margin:0 auto 2rem">Tell us what’s slowing your business down or what you want to build.</p><a class="btn" href="contact.html">Start a project</a><a class="btn g" href="index.html#partners">Become a delivery partner</a><nav class="aw-soc" aria-label="Social links"><a href="https://www.linkedin.com/in/ajay-goli-35182640b/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://api.whatsapp.com/send?phone=919347435990" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="mailto:ajaygoli17@gmail.com">Email</a></nav></div></section><footer></footer>`;
  document.getElementById("app").innerHTML=o;scrollTo(0,0);
  const cm=document.getElementById("cmp");if(cm)cm.querySelector("input").addEventListener("input",e=>cm.style.setProperty("--p",e.target.value+"%"));
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.06});
